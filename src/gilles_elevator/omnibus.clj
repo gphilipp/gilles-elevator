@@ -21,9 +21,10 @@
                             action))
   (not-found "No page here !"))
 
-(defonce server (jetty/run-jetty #'app {:port 8081 :join? false}))
+;(defonce server (jetty/run-jetty #'app {:port 8081 :join? false}))
 
-(.stop server)
-(.start server)
+;(.stop server)
+;(.start server)
+
 
 
