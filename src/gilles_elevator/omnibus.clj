@@ -1,9 +1,10 @@
-(ns gilles-elevator.core
+(ns gilles-elevator.omnibus
   (:require [ring.adapter.jetty :as jetty]
             [compojure.core :refer [GET defroutes]]
             [compojure.route :refer [not-found]]))
 
 (def commands (atom nil))
+
 (defn go [direction]
   (take 5 (cycle [[direction "OPEN" "CLOSE"]]))  
 )
@@ -20,8 +21,9 @@
                             action))
   (not-found "No page here !"))
 
-(Defonce server (jetty/run-jetty #'app {:port 8081 :join? false}))
+(defonce server (jetty/run-jetty #'app {:port 8081 :join? false}))
 
-;(.stop server)
-;(.start server)
+(.stop server)
+(.start server)
+
 
